@@ -56,13 +56,19 @@
                                 <div class="form-group">
                                     <label for="image_peminjam">File Instagram</label>
                                     <div class="input-group">
-                                        <div class="custom-file">
-                                            <input onclick="infolabel()" class="custom-file-input" type="file" id="folderInput" name="connectionFolder[]" webkitdirectory directory multiple required>
+                                        <div class="custom-file" style="margin-bottom: 15px;">
                                             <label class="custom-file-label" id="labelInfo" for="folderInput">Choose file</label>
+                                            <input onclick="infolabel()" class="custom-file-input" type="file" id="folderInput" name="connectionFolder[]" webkitdirectory directory multiple required>
                                         </div>
-                                        <div class="input-group-append">
-                                            <button onclick="processFolder()" value="Cek Unfollowers" class="input-group-text">Upload</button>
-                                        </div>
+                                    </div>                                
+                                    <div style="margin-bottom: 15px;">
+                                        <button onclick="processFolder()" value="Cek Unfollowers" class="input-group-text" style="width: 100%; text-align: center;">Upload</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="image_peminjam">Info</label>
+                                        <div id="result" style="padding-left: 20px;"></div>
+                                        <div class="input-group">
                                     </div>                                
                                 </div>
                                 <div class="form-group">
