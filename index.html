@@ -164,47 +164,62 @@
             let files = document.getElementById("folderInput").files;
             let followerFile = null;
             let followingFile = null;
-    
-            // Cari file followers_1.json dan following.json
+        
+            // Cari file dengan nama EXACT "following.json" dan "followers_1.json"
             for (let file of files) {
-                if (file.name.includes("followers_1")) {
+                if (file.name === "followers_1.json") {
                     followerFile = file;
-                } else if (file.name.includes("following")) {
+                } else if (file.name === "following.json") {
                     followingFile = file;
                 }
             }
-    
-            // Jika file tidak ditemukan, tampilkan pesan error
+        
+            // Debugging: Cek file yang ditemukan
+            console.log("✅ File followers:", followerFile ? followerFile.name : "Tidak ditemukan!");
+            console.log("✅ File following:", followingFile ? followingFile.name : "Tidak ditemukan!");
+        
+            // Jika file yang benar tidak ditemukan, tampilkan pesan error
             if (!followerFile || !followingFile) {
-                alert("File followers_1.json atau following.json tidak ditemukan di dalam folder!");
+                alert("❌ File followers_1.json atau following.json tidak ditemukan di dalam folder!");
                 return;
             }
-    
+        
             let reader1 = new FileReader();
             let reader2 = new FileReader();
-    
+        
             reader1.onload = function (event) {
                 let followers = JSON.parse(event.target.result);
-                let followersList = new Set(followers.map(user => user.string_list_data[0].value));
-    
+                console.log("✅ Data followers terbaca:", followers);
+                
+                let followersList = new Set(
+                    followers.map(user => user.string_list_data?.[0]?.value || null).filter(Boolean)
+                );
+        
                 reader2.onload = function (event) {
                     let following = JSON.parse(event.target.result);
-                    let followingList = following.relationships_following.map(user => user.string_list_data[0].value);
-    
-                    // Cari username yang tidak mengikuti balik
+                    console.log("✅ Data following terbaca:", following);
+        
+                    if (!following.hasOwnProperty("relationships_following") || !Array.isArray(following.relationships_following)) {
+                        throw new Error("❌ following.json tidak memiliki 'relationships_following' atau bukan array!");
+                    }
+        
+                    let followingList = following.relationships_following.map(user => 
+                        user.string_list_data?.[0]?.value || null
+                    ).filter(Boolean);
+        
+                    console.log("✅ Daftar following:", followingList);
+        
                     let notFollowingBack = followingList.filter(user => !followersList.has(user));
-    
-                    // Buat link Instagram untuk setiap username
+        
                     let links = notFollowingBack.map(username => {
                         return `<a href="https://www.instagram.com/${username}" target="_blank">${username}</a>`;
                     });
-    
-                    // Tampilkan hasil
+        
                     let resultDiv = document.getElementById("result");
                     if (links.length > 0) {
                         resultDiv.innerHTML = "<b>Orang yang tidak mengikuti balik:</b><br>" + links.join("<br>");
                     } else {
-                        resultDiv.innerHTML = "Semua sudah mengikuti balik 😊";
+                        resultDiv.innerHTML = "✅ Semua sudah mengikuti balik 😊";
                     }
                 };
                 reader2.readAsText(followingFile);
