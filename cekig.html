@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cek Instagram Fian</title>
+  
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../assets/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="../assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="../assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="../assets/plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../assets/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="../assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="../assets/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="../assets/plugins/summernote/summernote-bs4.min.css">
+  </head>
+<body class="light-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed sidebar-closed">
+    <!-- <div class="wrapper"> -->
+        <nav class=" navbar navbar-expand navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" class="nav-link">Home</a>
+                </li>
+                <!-- <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" class="nav-link">Contact</a>
+                </li> -->
+            </ul>
+        </nav>
+    <!-- </div> -->
+<!-- Content Wrapper. Contains page content -->
+<!-- <div class="content-wrapper">
+    <div class="content-header">
+        <div class="container-fluid"> -->
+            <div class="card-body">
+                <div class = "card">
+                <div class = "card-body">
+                    <div class="row mb-0">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="image_peminjam">File Instagram</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input onclick="infolabel()" class="custom-file-input" type="file" id="folderInput" name="connectionFolder[]" webkitdirectory directory multiple required>
+                                            <label class="custom-file-label" id="labelInfo" for="folderInput">Choose file</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <button onclick="processFolder()" value="Cek Unfollowers" class="input-group-text">Upload</button>
+                                        </div>
+                                    </div>                                
+                                </div>
+                                <div class="form-group">
+                                    <label for="image_peminjam">Info</label>
+                                        <div id="result" style="padding-left: 20px;"></div>
+                                        <div class="input-group">
+                                    </div>                                
+                                </div>
+                            </div>
+                    </div>
+                    <div class="result-container" id="result">
+                        <!-- Hasil akan ditampilkan di sini -->
+                    </div>
+                </div>
+            <!-- /.row -->
+           <!-- </div>
+        </div>
+    </div> -->
+    <!-- /.content-header -->
+
+
+    <!-- content-wrapper -->
+    <section class="content">
+        <!-- container-fluid -->
+        <div class="container-fluid">
+            <!-- /.container-fluid -->
+        </div>
+    </section>
+</div>
+<!-- /.content-wrapper -->
+<footer class="footer">
+    <strong> Made By 
+        <a href="https://www.instagram.com/fianfi_" target="_blank" rel="nofollow">FianFi_</a></strong>
+    <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 1.5.0
+    </div>
+</footer>
+
+<div>
+    <!-- jQuery -->
+    <script src="../assets/plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="../assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+    $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="../assets/plugins/chart.js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    <script src="../assets/plugins/sparklines/sparkline.js"></script>
+    <!-- JQVMap -->
+    <script src="../assets/plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="../assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="../assets/plugins/jquery-knob/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="../assets/plugins/moment/moment.min.js"></script>
+    <script src="../assets/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="../assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <script src="../assets/plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="../assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../assets/dist/js/adminlte.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../assets/dist/js/demo.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="../assets/dist/js/pages/dashboard.js"></script>
+    <script>
+        function infolabel(){
+            const folderInput = document.getElementById('folderInput');
+            const folderNameDisplay = document.getElementById('labelInfo');
+                
+            folderInput.addEventListener('change', function(event) {
+              const files = event.target.files;
+              if (files.length > 0) {
+                const firstFile = files[0];
+                const folderPath = firstFile.webkitRelativePath;
+                const folderName = folderPath.split('/')[0];
+                folderNameDisplay.textContent = `${folderName}`;
+              } else {
+                folderNameDisplay.textContent = 'Tidak ada folder yang dipilih.';
+              }
+            });
+        }
+      </script>
+    <script>
+        function processFolder() {
+            let files = document.getElementById("folderInput").files;
+            let followerFile = null;
+            let followingFile = null;
+    
+            // Cari file followers_1.json dan following.json
+            for (let file of files) {
+                if (file.name.includes("followers_1")) {
+                    followerFile = file;
+                } else if (file.name.includes("following")) {
+                    followingFile = file;
+                }
+            }
+    
+            // Jika file tidak ditemukan, tampilkan pesan error
+            if (!followerFile || !followingFile) {
+                alert("File followers_1.json atau following.json tidak ditemukan di dalam folder!");
+                return;
+            }
+    
+            let reader1 = new FileReader();
+            let reader2 = new FileReader();
+    
+            reader1.onload = function (event) {
+                let followers = JSON.parse(event.target.result);
+                let followersList = new Set(followers.map(user => user.string_list_data[0].value));
+    
+                reader2.onload = function (event) {
+                    let following = JSON.parse(event.target.result);
+                    let followingList = following.relationships_following.map(user => user.string_list_data[0].value);
+    
+                    // Cari username yang tidak mengikuti balik
+                    let notFollowingBack = followingList.filter(user => !followersList.has(user));
+    
+                    // Buat link Instagram untuk setiap username
+                    let links = notFollowingBack.map(username => {
+                        return `<a href="https://www.instagram.com/${username}" target="_blank">${username}</a>`;
+                    });
+    
+                    // Tampilkan hasil
+                    let resultDiv = document.getElementById("result");
+                    if (links.length > 0) {
+                        resultDiv.innerHTML = "<b>Orang yang tidak mengikuti balik:</b><br>" + links.join("<br>");
+                    } else {
+                        resultDiv.innerHTML = "Semua sudah mengikuti balik 😊";
+                    }
+                };
+                reader2.readAsText(followingFile);
+            };
+            reader1.readAsText(followerFile);
+        }
+    </script>
+</div>
+</body>
+
+</html>
